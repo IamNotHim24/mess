@@ -1,0 +1,23 @@
+!{%extends "layout.html"%}
+{%block title%}
+food here why fear
+{%endblock%}
+
+{%block content%}
+<h1 class="text-center text-white mt-4">Welcome to Crazy Crazy project</h1>
+
+<!--<a class="btn btn-primary" href="{%url 'rev_create'%}">create a review</a>-->
+<div class="container row gap-3">
+    {%for revi in rev %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{revi.photo.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">restaurant</h5>
+          <p class="card-text">{{revi.text}}</p>
+          <a href="{%url 'rev_create'%}?id={{revi.id}}" class="btn btn-primary">view more</a>
+        </div>
+      </div>
+    {%endfor%}
+</div>
+
+{%endblock%}
